@@ -1,16 +1,24 @@
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Portfólio profissional de Marcos Felipe Müller Pagani">
+    <meta name="description"
+        content="Portfólio profissional de Marcos Felipe Müller Pagani — Gestão, Comercial, Tecnologia e Inteligência Artificial.">
+
     <meta name="author" content="Marcos Felipe Müller Pagani">
 
-    <title>Marcos Felipe | Portfólio</title>
+    <title>Marcos Felipe Müller Pagani | Portfólio</title>
 
     <style>
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -19,53 +27,72 @@
         }
 
         :root {
-            --bg: #0b0f19;
-            --bg-secondary: #111827;
-            --card: #151c2c;
-            --text: #f5f7fa;
-            --text-secondary: #aeb7c7;
-            --primary: #6c63ff;
-            --primary-light: #8b85ff;
-            --border: rgba(255,255,255,0.08);
+            --background: #080b12;
+            --background-2: #0d111b;
+            --card: #121824;
+            --card-hover: #171f2f;
+
+            --text: #f5f7fb;
+            --text-muted: #a6afc0;
+
+            --primary: #6d63ff;
+            --primary-light: #8c84ff;
+
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(109, 99, 255, 0.45);
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
+            background: var(--background);
             color: var(--text);
             line-height: 1.6;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
-        /* NAVBAR */
+        ::selection {
+            background: var(--primary);
+            color: white;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
-            background: rgba(11,15,25,0.85);
-            backdrop-filter: blur(12px);
+            z-index: 999;
+
+            background: rgba(8, 11, 18, 0.82);
+            backdrop-filter: blur(15px);
+
             border-bottom: 1px solid var(--border);
         }
 
         nav {
-            max-width: 1100px;
+            max-width: 1150px;
+            height: 72px;
+
             margin: auto;
-            height: 70px;
+            padding: 0 25px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 25px;
         }
 
         .logo {
             font-size: 1.3rem;
-            font-weight: bold;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -78,405 +105,824 @@
             gap: 25px;
         }
 
-        nav ul li a {
-            color: var(--text-secondary);
-            transition: 0.3s;
+        nav ul a {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            transition: 0.25s;
         }
 
-        nav ul li a:hover {
+        nav ul a:hover {
             color: white;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
+
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+
             text-align: center;
-            padding: 120px 20px 80px;
+
+            padding: 130px 25px 90px;
+
             background:
-                radial-gradient(circle at 50% 20%, rgba(108,99,255,0.18), transparent 35%);
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(109, 99, 255, 0.18),
+                    transparent 35%
+                );
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 900px;
         }
 
-        .hero small {
+        .hero-label {
+            display: inline-block;
+
             color: var(--primary-light);
-            font-size: 1rem;
-            letter-spacing: 2px;
+
             text-transform: uppercase;
+            letter-spacing: 3px;
+
+            font-size: 0.82rem;
+            font-weight: 600;
+
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            line-height: 1.05;
-            margin: 20px 0;
+            font-size: clamp(3rem, 7vw, 6rem);
+
+            line-height: 1;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
         }
 
         .hero h1 span {
             color: var(--primary-light);
         }
 
-        .hero p {
-            max-width: 700px;
+        .hero-subtitle {
+            max-width: 760px;
+
             margin: auto;
-            color: var(--text-secondary);
-            font-size: 1.15rem;
+
+            color: var(--text-muted);
+
+            font-size: 1.18rem;
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            margin: 20px auto 0;
+
+            color: #858fa2;
+
+            font-size: 0.98rem;
         }
 
         .buttons {
             margin-top: 35px;
+
             display: flex;
             justify-content: center;
-            gap: 15px;
             flex-wrap: wrap;
+
+            gap: 14px;
         }
 
-        .btn {
-            padding: 13px 23px;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 22px;
+
             border-radius: 10px;
+
+            font-weight: 600;
+
             border: 1px solid var(--border);
-            transition: 0.3s;
-            font-weight: bold;
+
+            transition: 0.25s;
         }
 
-        .btn-primary {
+        .button-primary {
             background: var(--primary);
+            border-color: var(--primary);
         }
 
-        .btn-primary:hover {
+        .button-primary:hover {
             background: var(--primary-light);
             transform: translateY(-3px);
         }
 
-        .btn-secondary:hover {
+        .button-secondary {
+            background: transparent;
+        }
+
+        .button-secondary:hover {
             background: var(--card);
             transform: translateY(-3px);
         }
 
-        /* SECTIONS */
+
+        /* =========================
+           SEÇÕES
+        ========================= */
 
         section {
-            max-width: 1100px;
+            max-width: 1150px;
+
             margin: auto;
+
             padding: 100px 25px;
         }
 
-        .section-title {
+        .section-heading {
             margin-bottom: 45px;
         }
 
-        .section-title small {
+        .section-heading small {
             color: var(--primary-light);
+
             text-transform: uppercase;
             letter-spacing: 2px;
+
+            font-size: 0.78rem;
+            font-weight: 700;
         }
 
-        .section-title h2 {
-            font-size: 2.3rem;
-            margin-top: 8px;
+        .section-heading h2 {
+            font-size: 2.4rem;
+
+            margin-top: 7px;
+
+            letter-spacing: -1px;
         }
 
-        .section-title p {
-            color: var(--text-secondary);
+        .section-heading p {
+            color: var(--text-muted);
+
+            max-width: 650px;
+
             margin-top: 10px;
         }
 
-        /* ABOUT */
+
+        /* =========================
+           SOBRE
+        ========================= */
 
         .about {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 60px;
+
             align-items: center;
         }
 
         .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
+            color: var(--text-muted);
+
+            margin-bottom: 18px;
+
+            font-size: 1.02rem;
         }
 
-        .about-card {
+        .about-text strong {
+            color: white;
+        }
+
+        .profile-card {
             background: var(--card);
+
             border: 1px solid var(--border);
-            padding: 30px;
+
             border-radius: 18px;
+
+            padding: 28px;
         }
 
-        .about-card div {
-            padding: 15px 0;
+        .profile-item {
+            padding: 17px 0;
+
             border-bottom: 1px solid var(--border);
         }
 
-        .about-card div:last-child {
+        .profile-item:last-child {
             border-bottom: none;
         }
 
-        .about-card strong {
+        .profile-item strong {
             display: block;
+
             margin-bottom: 4px;
         }
 
-        .about-card span {
-            color: var(--text-secondary);
+        .profile-item span {
+            color: var(--text-muted);
+
+            font-size: 0.93rem;
         }
 
-        /* SKILLS */
 
-        .skills {
+        /* =========================
+           ÁREAS
+        ========================= */
+
+        .areas {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
         }
 
-        .skill {
+        .area {
             background: var(--card);
+
             border: 1px solid var(--border);
+
+            border-radius: 16px;
+
             padding: 25px;
-            border-radius: 15px;
+
             transition: 0.3s;
         }
 
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: rgba(108,99,255,0.5);
+        .area:hover {
+            transform: translateY(-6px);
+
+            background: var(--card-hover);
+
+            border-color: var(--border-hover);
         }
 
-        .skill h3 {
+        .area-icon {
+            font-size: 1.7rem;
+
+            margin-bottom: 15px;
+        }
+
+        .area h3 {
+            font-size: 1.05rem;
+
             margin-bottom: 8px;
         }
 
-        .skill p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+        .area p {
+            color: var(--text-muted);
+
+            font-size: 0.9rem;
         }
 
-        /* EXPERIENCE */
+
+        /* =========================
+           HABILIDADES
+        ========================= */
+
+        .skills-container {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+        }
+
+        .skill-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(109, 99, 255, 0.1);
+
+            border: 1px solid rgba(109, 99, 255, 0.18);
+
+            color: #c8c4ff;
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 0.82rem;
+        }
+
+
+        /* =========================
+           EXPERIÊNCIA
+        ========================= */
 
         .timeline {
+            position: relative;
+
             border-left: 2px solid var(--primary);
-            padding-left: 30px;
+
+            padding-left: 35px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 40px;
+
+            margin-bottom: 45px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-item::before {
             content: "";
+
             position: absolute;
+
             width: 12px;
             height: 12px;
+
             background: var(--primary);
+
             border-radius: 50%;
-            left: -37px;
+
+            left: -42px;
+
             top: 7px;
+
+            box-shadow: 0 0 0 5px var(--background);
+        }
+
+        .timeline-date {
+            color: var(--primary-light);
+
+            font-size: 0.85rem;
+
+            font-weight: 600;
         }
 
         .timeline-item h3 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
+
+            margin-top: 3px;
         }
 
-        .timeline-item .date {
-            color: var(--primary-light);
-            font-size: 0.9rem;
+        .timeline-company {
+            color: var(--text-muted);
+
+            margin-bottom: 10px;
         }
 
         .timeline-item p {
-            color: var(--text-secondary);
-            margin-top: 8px;
+            color: var(--text-muted);
+
+            max-width: 850px;
         }
 
-        /* PROJECTS */
+        .timeline-item ul {
+            margin: 13px 0 0 20px;
+
+            color: var(--text-muted);
+        }
+
+        .timeline-item li {
+            margin-bottom: 4px;
+        }
+
+
+        /* =========================
+           PROJETOS
+        ========================= */
 
         .projects {
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+
+            gap: 22px;
         }
 
         .project {
             background: var(--card);
+
             border: 1px solid var(--border);
+
             border-radius: 18px;
+
             padding: 30px;
+
             transition: 0.3s;
         }
 
         .project:hover {
-            transform: translateY(-7px);
-            border-color: rgba(108,99,255,0.5);
+            transform: translateY(-6px);
+
+            background: var(--card-hover);
+
+            border-color: var(--border-hover);
         }
 
-        .project-tag {
+        .project-status {
             display: inline-block;
-            color: var(--primary-light);
-            background: rgba(108,99,255,0.1);
+
             padding: 5px 10px;
+
             border-radius: 20px;
-            font-size: 0.8rem;
+
+            background: rgba(109, 99, 255, 0.1);
+
+            color: var(--primary-light);
+
+            font-size: 0.75rem;
+
             margin-bottom: 15px;
         }
 
         .project h3 {
+            font-size: 1.4rem;
+
             margin-bottom: 10px;
         }
 
         .project p {
-            color: var(--text-secondary);
+            color: var(--text-muted);
+
+            margin-bottom: 15px;
         }
 
         .project ul {
-            margin: 15px 0 0 18px;
-            color: var(--text-secondary);
+            margin-left: 18px;
+
+            color: var(--text-muted);
+
+            font-size: 0.93rem;
         }
 
-        /* EDUCATION */
+        .project li {
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           RECONectura DESTAQUE
+        ========================= */
+
+        .featured-project {
+            margin-bottom: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(109, 99, 255, 0.12),
+                    rgba(18, 24, 36, 1)
+                );
+
+            border: 1px solid rgba(109, 99, 255, 0.25);
+
+            border-radius: 20px;
+
+            padding: 35px;
+        }
+
+        .featured-project h3 {
+            font-size: 1.7rem;
+
+            margin-bottom: 10px;
+        }
+
+        .featured-project p {
+            color: var(--text-muted);
+
+            max-width: 850px;
+        }
+
+        .featured-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .featured-item {
+            padding: 18px;
+
+            background: rgba(0, 0, 0, 0.18);
+
+            border-radius: 12px;
+        }
+
+        .featured-item strong {
+            display: block;
+
+            margin-bottom: 4px;
+        }
+
+        .featured-item span {
+            color: var(--text-muted);
+
+            font-size: 0.85rem;
+        }
+
+
+        /* =========================
+           FORMAÇÃO
+        ========================= */
 
         .education {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns: repeat(2, 1fr);
+
             gap: 20px;
         }
 
         .education-card {
             background: var(--card);
+
             border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 25px;
+
+            border-radius: 16px;
+
+            padding: 27px;
         }
 
-        .education-card span {
+        .education-card .type {
             color: var(--primary-light);
-            font-size: 0.9rem;
+
+            font-size: 0.78rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .education-card h3 {
+            margin-top: 8px;
+
+            font-size: 1.25rem;
+        }
+
+        .education-card .institution {
+            color: var(--text-muted);
+
+            margin-top: 4px;
         }
 
         .education-card p {
-            color: var(--text-secondary);
-            margin-top: 7px;
+            color: var(--text-muted);
+
+            margin-top: 12px;
+
+            font-size: 0.93rem;
         }
 
-        /* CONTACT */
+
+        /* =========================
+           CONTATO
+        ========================= */
 
         .contact {
             text-align: center;
-            max-width: 700px;
+
+            max-width: 800px;
         }
 
-        .contact p {
-            color: var(--text-secondary);
-            margin: 15px 0 30px;
+        .contact .section-heading p {
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-links {
             display: flex;
+
             justify-content: center;
+
             flex-wrap: wrap;
-            gap: 15px;
+
+            gap: 13px;
+
+            margin-top: 30px;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             border-top: 1px solid var(--border);
+
             text-align: center;
-            padding: 30px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+
+            padding: 30px 20px;
+
+            color: var(--text-muted);
+
+            font-size: 0.85rem;
         }
 
-        /* RESPONSIVE */
 
-        @media (max-width: 800px) {
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 900px) {
 
             nav ul {
                 display: none;
             }
 
-            .about,
-            .projects,
-            .education {
+            .about {
                 grid-template-columns: 1fr;
             }
 
-            .skills {
-                grid-template-columns: 1fr 1fr;
+            .areas {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .hero h1 {
-                font-size: 3.2rem;
+            .projects {
+                grid-template-columns: 1fr;
             }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
         }
 
-        @media (max-width: 500px) {
 
-            .skills {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 650px) {
 
             section {
                 padding: 75px 20px;
             }
 
             .hero {
-                padding-top: 120px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
+
+            .hero h1 {
+                font-size: 3.2rem;
+
+                letter-spacing: -2px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .education {
+                grid-template-columns: 1fr;
+            }
+
+            .areas {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-project {
+                padding: 25px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     MENU
+========================= -->
+
 <header>
+
     <nav>
+
         <div class="logo">
             Marcos<span>.</span>
         </div>
 
         <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#experiencia">Experiência</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#formacao">Formação</a></li>
-            <li><a href="#contato">Contato</a></li>
+
+            <li>
+                <a href="#sobre">Sobre</a>
+            </li>
+
+            <li>
+                <a href="#competencias">Competências</a>
+            </li>
+
+            <li>
+                <a href="#experiencia">Experiência</a>
+            </li>
+
+            <li>
+                <a href="#projetos">Projetos</a>
+            </li>
+
+            <li>
+                <a href="#formacao">Formação</a>
+            </li>
+
+            <li>
+                <a href="#contato">Contato</a>
+            </li>
+
         </ul>
+
     </nav>
+
 </header>
 
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <small>Portfólio profissional</small>
+        <span class="hero-label">
+            Portfólio profissional
+        </span>
 
         <h1>
-            Olá, eu sou<br>
-            <span>Marcos Felipe.</span>
+            Marcos Felipe<br>
+            <span>Müller Pagani</span>
         </h1>
 
-        <p>
-            Profissional em formação, interessado em tecnologia,
-            processos, inteligência artificial e desenvolvimento de soluções
-            que transformem problemas em oportunidades.
+        <p class="hero-subtitle">
+
+            Gestão, Comercial, Tecnologia e
+            Inteligência Artificial.
+
         </p>
+
+        <p class="hero-description">
+
+            Profissional em formação com experiência em
+            atendimento, área comercial e processos,
+            atualmente ampliando sua atuação em tecnologia,
+            programação, dados e inteligência artificial.
+
+        </p>
+
 
         <div class="buttons">
 
-            <a href="#projetos" class="btn btn-primary">
-                Ver meus projetos
+            <a
+                href="#projetos"
+                class="button button-primary">
+
+                Conheça meus projetos
+
             </a>
 
-            <a href="#contato" class="btn btn-secondary">
-                Entre em contato
+
+            <a
+                href="https://www.linkedin.com/in/marcos-felipe-m%C3%BCller-pagani/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-secondary">
+
+                LinkedIn
+
             </a>
 
         </div>
@@ -486,63 +932,159 @@
 </section>
 
 
-<!-- SOBRE -->
+
+<!-- =========================
+     SOBRE
+========================= -->
 
 <section id="sobre">
 
-    <div class="section-title">
-        <small>Sobre mim</small>
-        <h2>Construindo soluções com visão estratégica</h2>
+    <div class="section-heading">
+
+        <small>
+            Sobre mim
+        </small>
+
+        <h2>
+            Gestão com visão de tecnologia
+        </h2>
+
+        <p>
+            Uma trajetória construída entre pessoas,
+            processos, negócios e tecnologia.
+        </p>
+
     </div>
 
+
     <div class="about">
+
 
         <div class="about-text">
 
             <p>
-                Sou Marcos Felipe Müller Pagani, profissional em formação
-                na área de gestão e tecnologia, com experiência em atendimento,
-                processos comerciais, organização e suporte às rotinas
+
+                Sou <strong>Marcos Felipe Müller Pagani</strong>,
+                profissional em formação na área de gestão,
+                com experiência em atendimento, relacionamento
+                com clientes, atividades comerciais e rotinas
                 administrativas.
+
             </p>
 
-            <p>
-                Tenho interesse especial pela combinação entre tecnologia,
-                inteligência artificial, processos e negócios.
-                Gosto de compreender como as coisas funcionam e buscar
-                maneiras mais simples e eficientes de resolver problemas.
-            </p>
 
             <p>
-                Atualmente venho ampliando meus conhecimentos em programação,
-                inteligência artificial, análise de dados e ferramentas
-                digitais.
+
+                Minha formação em <strong>Processos Gerenciais</strong>
+                contribuiu para desenvolver uma visão sobre
+                organizações, processos, pessoas, projetos,
+                marketing e estratégia.
+
+            </p>
+
+
+            <p>
+
+                Também busquei formação complementar em
+                <strong>Gestão Comercial e Relacionamento pelo
+                Instituto Caldeira</strong>, ampliando minha
+                experiência na área comercial e no relacionamento
+                com clientes.
+
+            </p>
+
+
+            <p>
+
+                Atualmente, venho direcionando parte dos meus
+                estudos para <strong>tecnologia, programação,
+                inteligência artificial, dados e ferramentas
+                digitais</strong>.
+
+            </p>
+
+
+            <p>
+
+                Meu interesse está justamente na conexão entre
+                esses mundos: compreender um problema,
+                estruturar uma solução e utilizar a tecnologia
+                como ferramenta para torná-la possível.
+
             </p>
 
         </div>
 
 
-        <div class="about-card">
 
-            <div>
-                <strong>Área de interesse</strong>
-                <span>Tecnologia • IA • Processos • Negócios</span>
+        <div class="profile-card">
+
+
+            <div class="profile-item">
+
+                <strong>
+                    Área de atuação
+                </strong>
+
+                <span>
+                    Gestão • Comercial • Tecnologia
+                </span>
+
             </div>
 
-            <div>
-                <strong>Localização</strong>
-                <span>Camaquã, Rio Grande do Sul</span>
+
+            <div class="profile-item">
+
+                <strong>
+                    Interesses
+                </strong>
+
+                <span>
+                    IA • Programação • Dados • Processos
+                </span>
+
             </div>
 
-            <div>
-                <strong>Perfil</strong>
-                <span>Estratégico • Organizado • Curioso</span>
+
+            <div class="profile-item">
+
+                <strong>
+                    Localização
+                </strong>
+
+                <span>
+                    Camaquã — Rio Grande do Sul
+                </span>
+
             </div>
 
-            <div>
-                <strong>Objetivo</strong>
-                <span>Resolver problemas através da tecnologia</span>
+
+            <div class="profile-item">
+
+                <strong>
+                    Perfil
+                </strong>
+
+                <span>
+                    Estratégico • Organizado • Curioso
+                </span>
+
             </div>
+
+
+            <div class="profile-item">
+
+                <strong>
+                    Foco profissional
+                </strong>
+
+                <span>
+                    Resolver problemas através de soluções
+                    práticas e tecnologia
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -551,293 +1093,867 @@
 </section>
 
 
-<!-- HABILIDADES -->
 
-<section id="habilidades">
+<!-- =========================
+     ÁREAS
+========================= -->
 
-    <div class="section-title">
-        <small>Competências</small>
-        <h2>O que eu faço</h2>
+<section id="competencias">
+
+    <div class="section-heading">
+
+        <small>
+            Competências
+        </small>
+
+        <h2>
+            Onde minhas experiências se encontram
+        </h2>
+
     </div>
 
-    <div class="skills">
 
-        <div class="skill">
-            <h3>💡 Resolução de problemas</h3>
+    <div class="areas">
+
+
+        <div class="area">
+
+            <div class="area-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Gestão & Processos
+            </h3>
+
             <p>
-                Análise de situações e busca por soluções práticas,
-                estruturadas e eficientes.
+                Organização, análise de processos,
+                planejamento e visão sistêmica.
             </p>
+
         </div>
 
-        <div class="skill">
-            <h3>⚙️ Processos</h3>
+
+        <div class="area">
+
+            <div class="area-icon">
+                🤝
+            </div>
+
+            <h3>
+                Comercial
+            </h3>
+
             <p>
-                Organização de atividades, melhoria de processos
-                e visão sistêmica.
+                Atendimento, relacionamento,
+                prospecção e suporte às atividades comerciais.
             </p>
+
         </div>
 
-        <div class="skill">
-            <h3>🤖 Inteligência Artificial</h3>
+
+        <div class="area">
+
+            <div class="area-icon">
+                🤖
+            </div>
+
+            <h3>
+                Inteligência Artificial
+            </h3>
+
             <p>
-                Exploração de ferramentas de IA para produtividade,
-                automação e criação de soluções.
+                Exploração de IA para produtividade,
+                criação de soluções e automação.
             </p>
+
         </div>
 
-        <div class="skill">
-            <h3>💻 Tecnologia</h3>
+
+        <div class="area">
+
+            <div class="area-icon">
+                💻
+            </div>
+
+            <h3>
+                Tecnologia
+            </h3>
+
             <p>
                 Estudos em programação, desenvolvimento web,
-                ferramentas digitais e tecnologia.
+                dados e ferramentas digitais.
             </p>
+
         </div>
 
-        <div class="skill">
-            <h3>📊 Dados</h3>
-            <p>
-                Conhecimentos em planilhas, organização de informações
-                e Power BI.
-            </p>
-        </div>
-
-        <div class="skill">
-            <h3>🤝 Comunicação</h3>
-            <p>
-                Experiência com atendimento ao cliente,
-                comunicação comercial e trabalho em equipe.
-            </p>
-        </div>
 
     </div>
 
 </section>
 
 
-<!-- EXPERIÊNCIA -->
+
+<!-- =========================
+     HABILIDADES
+========================= -->
+
+<section>
+
+    <div class="section-heading">
+
+        <small>
+            Conhecimentos
+        </small>
+
+        <h2>
+            Ferramentas e habilidades
+        </h2>
+
+    </div>
+
+
+    <div class="skills-container">
+
+
+        <div class="skill-box">
+
+            <h3>
+                💼 Gestão & Negócios
+            </h3>
+
+            <div class="tags">
+
+                <span class="tag">
+                    Processos
+                </span>
+
+                <span class="tag">
+                    Gestão
+                </span>
+
+                <span class="tag">
+                    Estratégia
+                </span>
+
+                <span class="tag">
+                    Marketing
+                </span>
+
+                <span class="tag">
+                    Projetos
+                </span>
+
+                <span class="tag">
+                    Liderança
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-box">
+
+            <h3>
+                💻 Tecnologia
+            </h3>
+
+            <div class="tags">
+
+                <span class="tag">
+                    HTML
+                </span>
+
+                <span class="tag">
+                    CSS
+                </span>
+
+                <span class="tag">
+                    JavaScript
+                </span>
+
+                <span class="tag">
+                    Lógica de Programação
+                </span>
+
+                <span class="tag">
+                    GitHub
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-box">
+
+            <h3>
+                🤖 Inteligência Artificial
+            </h3>
+
+            <div class="tags">
+
+                <span class="tag">
+                    IA Generativa
+                </span>
+
+                <span class="tag">
+                    Automação
+                </span>
+
+                <span class="tag">
+                    Agentes de IA
+                </span>
+
+                <span class="tag">
+                    Prompt Engineering
+                </span>
+
+                <span class="tag">
+                    Produtividade
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-box">
+
+            <h3>
+                📊 Dados & Ferramentas
+            </h3>
+
+            <div class="tags">
+
+                <span class="tag">
+                    Power BI
+                </span>
+
+                <span class="tag">
+                    Excel
+                </span>
+
+                <span class="tag">
+                    Microsoft Office
+                </span>
+
+                <span class="tag">
+                    Organização de dados
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EXPERIÊNCIA
+========================= -->
 
 <section id="experiencia">
 
-    <div class="section-title">
-        <small>Trajetória</small>
-        <h2>Experiência profissional</h2>
+    <div class="section-heading">
+
+        <small>
+            Experiência
+        </small>
+
+        <h2>
+            Minha trajetória profissional
+        </h2>
+
     </div>
+
 
     <div class="timeline">
 
+
+        <!-- UNIFIQUE -->
+
         <div class="timeline-item">
 
-            <span class="date">
+            <span class="timeline-date">
                 2024 — 2026
             </span>
 
-            <h3>Unifique Telecomunicações</h3>
+            <h3>
+                Jovem Aprendiz
+            </h3>
+
+            <div class="timeline-company">
+                Unifique Telecomunicações
+            </div>
+
 
             <p>
-                Atuação em atividades comerciais e administrativas,
-                incluindo atendimento ao cliente, prospecção de leads,
-                pré e pós-venda, organização de estoque, elaboração de
-                planilhas, documentos e suporte às rotinas operacionais.
+
+                Experiência desenvolvida principalmente
+                nas áreas comercial, atendimento e suporte
+                às rotinas administrativas e operacionais.
+
             </p>
+
+
+            <ul>
+
+                <li>
+                    Atendimento e relacionamento com clientes
+                </li>
+
+                <li>
+                    Prospecção e acompanhamento de leads
+                </li>
+
+                <li>
+                    Apoio em pré-venda e pós-venda
+                </li>
+
+                <li>
+                    Organização e controle de estoque
+                </li>
+
+                <li>
+                    Elaboração e organização de planilhas
+                </li>
+
+                <li>
+                    Apoio na organização de documentos
+                </li>
+
+                <li>
+                    Suporte às rotinas comerciais e administrativas
+                </li>
+
+            </ul>
 
         </div>
 
+
+
+        <!-- POMPÉIA -->
 
         <div class="timeline-item">
 
-            <span class="date">
+            <span class="timeline-date">
                 2022 — 2024
             </span>
 
-            <h3>Lojas Pompéia</h3>
+            <h3>
+                Jovem Aprendiz
+            </h3>
+
+            <div class="timeline-company">
+                Lojas Pompéia
+            </div>
+
 
             <p>
-                Experiência com atendimento ao cliente, organização
-                e controle de estoque, reposição de produtos,
-                documentos e rotinas gerais de loja.
+
+                Primeira experiência profissional,
+                desenvolvendo conhecimentos de atendimento,
+                organização, estoque e rotina operacional.
+
             </p>
 
+
+            <ul>
+
+                <li>
+                    Atendimento ao cliente
+                </li>
+
+                <li>
+                    Organização e controle de estoque
+                </li>
+
+                <li>
+                    Reposição de produtos
+                </li>
+
+                <li>
+                    Organização de documentos
+                </li>
+
+                <li>
+                    Apoio às rotinas da loja
+                </li>
+
+            </ul>
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- PROJETOS -->
+
+<!-- =========================
+     PROJETOS
+========================= -->
 
 <section id="projetos">
 
-    <div class="section-title">
-        <small>Projetos</small>
-        <h2>Projetos que estou desenvolvendo</h2>
+    <div class="section-heading">
+
+        <small>
+            Projetos
+        </small>
+
+        <h2>
+            Projetos e iniciativas
+        </h2>
+
         <p>
-            Ideias que unem tecnologia, negócios, cultura e solução de problemas.
+            Experiências em que utilizei conhecimentos de
+            gestão, tecnologia, pesquisa e desenvolvimento
+            de soluções.
         </p>
+
     </div>
 
+
+
+    <!-- RECONectura -->
+
+    <div class="featured-project">
+
+        <span class="project-status">
+            Projeto desenvolvido
+        </span>
+
+        <h3>
+            Reconectura
+        </h3>
+
+
+        <p>
+
+            Projeto criado com o objetivo de conectar pessoas
+            à história, cultura e patrimônio de Camaquã
+            através da tecnologia.
+
+            A proposta passou por diferentes etapas de
+            desenvolvimento, validação e análise de viabilidade.
+
+        </p>
+
+
+        <p style="margin-top: 12px;">
+
+            A ideia inicial envolvia realidade aumentada,
+            mas o projeto evoluiu para uma proposta mais
+            simples e viável: uma plataforma digital voltada
+            ao turismo e à história local.
+
+        </p>
+
+
+        <p style="margin-top: 12px;">
+
+            Durante o desenvolvimento foram analisados
+            público-alvo, proposta de valor, possibilidades
+            de monetização, parceiros, custos e formas de
+            implementação.
+
+            O projeto foi desenvolvido até o ponto em que
+            sua viabilidade foi avaliada, permitindo
+            identificar os principais desafios para sua
+            continuidade.
+
+        </p>
+
+
+        <div class="featured-grid">
+
+
+            <div class="featured-item">
+
+                <strong>
+                    💡 Conceito
+                </strong>
+
+                <span>
+                    Tecnologia aplicada à cultura e ao turismo
+                </span>
+
+            </div>
+
+
+            <div class="featured-item">
+
+                <strong>
+                    🔎 Validação
+                </strong>
+
+                <span>
+                    Pesquisa, análise de público e proposta de valor
+                </span>
+
+            </div>
+
+
+            <div class="featured-item">
+
+                <strong>
+                    📊 Negócios
+                </strong>
+
+                <span>
+                    Estudo de monetização e viabilidade
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- OUTROS PROJETOS -->
 
     <div class="projects">
 
+
         <div class="project">
 
-            <span class="project-tag">
-                Tecnologia + Cultura
+            <span class="project-status">
+                Tecnologia
             </span>
 
-            <h3>Reconectura</h3>
+            <h3>
+                Estudos em Programação
+            </h3>
 
             <p>
-                Projeto voltado à valorização da história e do patrimônio
-                de Camaquã através da tecnologia.
+
+                Desenvolvimento contínuo de conhecimentos
+                em programação e desenvolvimento web.
+
             </p>
 
             <ul>
-                <li>Plataforma digital de turismo e história local</li>
-                <li>Organização de informações históricas</li>
-                <li>Possibilidade de integração futura com realidade aumentada</li>
-                <li>Conexão entre visitantes, comércio e patrimônio</li>
+
+                <li>
+                    HTML e CSS
+                </li>
+
+                <li>
+                    JavaScript
+                </li>
+
+                <li>
+                    Lógica de programação
+                </li>
+
+                <li>
+                    Desenvolvimento de páginas web
+                </li>
+
             </ul>
 
         </div>
 
 
+
         <div class="project">
 
-            <span class="project-tag">
-                IA + Negócios
+            <span class="project-status">
+                Dados + IA
             </span>
 
-            <h3>Business Inteligente</h3>
+            <h3>
+                Power BI & Inteligência Artificial
+            </h3>
 
             <p>
-                Conceito de negócio focado na utilização de inteligência
-                artificial para criar soluções digitais para empresas.
+
+                Desenvolvimento de conhecimentos em análise
+                de dados e utilização de ferramentas de IA
+                para produtividade e solução de problemas.
+
             </p>
 
             <ul>
-                <li>Automação de tarefas</li>
-                <li>Agentes de IA</li>
-                <li>Sites e soluções digitais</li>
-                <li>Organização de processos</li>
+
+                <li>
+                    Power BI
+                </li>
+
+                <li>
+                    Organização e análise de informações
+                </li>
+
+                <li>
+                    Inteligência Artificial
+                </li>
+
+                <li>
+                    Automação e produtividade
+                </li>
+
             </ul>
 
         </div>
 
 
+
         <div class="project">
 
-            <span class="project-tag">
-                Estudos
+            <span class="project-status">
+                Conceito de negócio
             </span>
 
-            <h3>Programação</h3>
+            <h3>
+                Business Inteligente
+            </h3>
 
             <p>
-                Desenvolvimento contínuo de conhecimentos em programação
-                e tecnologia, com foco inicial em desenvolvimento web.
+
+                Conceito voltado à utilização de inteligência
+                artificial para criação de soluções digitais
+                para empresas.
+
             </p>
 
             <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Lógica de programação</li>
+
+                <li>
+                    Agentes de IA
+                </li>
+
+                <li>
+                    Automação
+                </li>
+
+                <li>
+                    Sites e soluções digitais
+                </li>
+
+                <li>
+                    Organização de processos
+                </li>
+
             </ul>
 
         </div>
 
 
+
         <div class="project">
 
-            <span class="project-tag">
-                Dados
+            <span class="project-status">
+                Desenvolvimento
             </span>
 
-            <h3>Power BI & IA</h3>
+            <h3>
+                Exploração de novas tecnologias
+            </h3>
 
             <p>
-                Desenvolvimento de conhecimentos em análise de dados,
-                visualização de informações e utilização de inteligência
-                artificial para produtividade.
+
+                Estudo e experimentação de ferramentas
+                digitais para compreender como novas
+                tecnologias podem ser aplicadas a problemas
+                reais.
+
             </p>
 
             <ul>
-                <li>Power BI</li>
-                <li>Análise de informações</li>
-                <li>Ferramentas de IA</li>
-                <li>Produtividade digital</li>
+
+                <li>
+                    Ferramentas de IA
+                </li>
+
+                <li>
+                    Desenvolvimento web
+                </li>
+
+                <li>
+                    Automação
+                </li>
+
+                <li>
+                    Soluções digitais
+                </li>
+
             </ul>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- FORMAÇÃO -->
+
+<!-- =========================
+     FORMAÇÃO
+========================= -->
 
 <section id="formacao">
 
-    <div class="section-title">
-        <small>Formação</small>
-        <h2>Educação & Desenvolvimento</h2>
+    <div class="section-heading">
+
+        <small>
+            Formação
+        </small>
+
+        <h2>
+            Educação e desenvolvimento
+        </h2>
+
     </div>
+
 
     <div class="education">
 
+
         <div class="education-card">
 
-            <span>Graduação</span>
+            <span class="type">
+                Graduação
+            </span>
 
-            <h3>Processos Gerenciais</h3>
+            <h3>
+                Processos Gerenciais
+            </h3>
 
-            <p>
+            <div class="institution">
                 UNIASSELVI
-            </p>
+            </div>
 
             <p>
-                Formação voltada para gestão, liderança,
-                processos, projetos, marketing e estratégia.
+
+                Formação voltada para gestão de pessoas,
+                liderança, projetos, processos, marketing,
+                estratégia e administração.
+
             </p>
 
         </div>
+
 
 
         <div class="education-card">
 
-            <span>Formação complementar</span>
+            <span class="type">
+                Formação complementar
+            </span>
 
-            <h3>Tecnologia e Programação</h3>
+            <h3>
+                Gestão Comercial e Relacionamento
+            </h3>
+
+            <div class="institution">
+                Instituto Caldeira
+            </div>
 
             <p>
-                Estudos em lógica de programação, JavaScript,
-                inteligência artificial, Power BI e ferramentas digitais.
+
+                Formação complementar direcionada à área
+                comercial, relacionamento e desenvolvimento
+                profissional.
+
             </p>
 
         </div>
+
+
+
+        <div class="education-card">
+
+            <span class="type">
+                Desenvolvimento técnico
+            </span>
+
+            <h3>
+                Programação e Tecnologia
+            </h3>
+
+            <div class="institution">
+                Estudos e cursos complementares
+            </div>
+
+            <p>
+
+                Estudos em lógica de programação, JavaScript,
+                desenvolvimento web e ferramentas digitais.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="education-card">
+
+            <span class="type">
+                Desenvolvimento digital
+            </span>
+
+            <h3>
+                IA & Power BI
+            </h3>
+
+            <div class="institution">
+                Cursos e estudos complementares
+            </div>
+
+            <p>
+
+                Desenvolvimento de conhecimentos em
+                inteligência artificial, produtividade,
+                análise de dados e visualização de informações.
+
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- CONTATO -->
+
+<!-- =========================
+     CONTATO
+========================= -->
 
 <section id="contato" class="contact">
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <small>Contato</small>
+        <small>
+            Contato
+        </small>
 
-        <h2>Vamos conversar?</h2>
+        <h2>
+            Vamos conversar?
+        </h2>
 
         <p>
+
             Estou aberto a oportunidades profissionais,
-            projetos e conexões relacionadas a tecnologia,
-            processos e inovação.
+            projetos, conexões e experiências que envolvam
+            gestão, negócios, tecnologia e inovação.
+
         </p>
 
     </div>
@@ -845,41 +1961,71 @@
 
     <div class="contact-links">
 
-        <a
-            href="mailto:SEUEMAIL@gmail.com"
-            class="btn btn-primary">
-            ✉️ E-mail
-        </a>
+
+        <!-- TROQUE PELO SEU E-MAIL -->
 
         <a
-            href="https://www.linkedin.com/"
-            target="_blank"
-            class="btn btn-secondary">
-            LinkedIn
+            href="mailto:SEUEMAIL@gmail.com"
+            class="button button-primary">
+
+            ✉️ E-mail
+
         </a>
+
+
+
+        <a
+            href="https://www.linkedin.com/in/marcos-felipe-m%C3%BCller-pagani/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-secondary">
+
+            💼 LinkedIn
+
+        </a>
+
+
+
+        <!-- TROQUE PELO SEU GITHUB -->
 
         <a
             href="https://github.com/"
             target="_blank"
-            class="btn btn-secondary">
-            GitHub
+            rel="noopener noreferrer"
+            class="button button-secondary">
+
+            💻 GitHub
+
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     RODAPÉ
+========================= -->
 
 <footer>
 
-    © 2026 Marcos Felipe Müller Pagani.
-    Desenvolvido com HTML e CSS.
+    <p>
+        © 2026 Marcos Felipe Müller Pagani.
+    </p>
+
+    <p style="margin-top: 5px;">
+
+        Gestão • Tecnologia • Inteligência Artificial
+
+    </p>
 
 </footer>
 
 
+
 </body>
+
 </html>
 ```
