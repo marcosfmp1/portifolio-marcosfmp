@@ -1,0 +1,885 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Portfólio profissional de Marcos Felipe Müller Pagani">
+    <meta name="author" content="Marcos Felipe Müller Pagani">
+
+    <title>Marcos Felipe | Portfólio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #0b0f19;
+            --bg-secondary: #111827;
+            --card: #151c2c;
+            --text: #f5f7fa;
+            --text-secondary: #aeb7c7;
+            --primary: #6c63ff;
+            --primary-light: #8b85ff;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11,15,25,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            background:
+                radial-gradient(circle at 50% 20%, rgba(108,99,255,0.18), transparent 35%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero small {
+            color: var(--primary-light);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 23px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card);
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .about-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .about-card div {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-card div:last-child {
+            border-bottom: none;
+        }
+
+        .about-card strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .about-card span {
+            color: var(--text-secondary);
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: rgba(108,99,255,0.5);
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* EXPERIENCE */
+
+        .timeline {
+            border-left: 2px solid var(--primary);
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            left: -37px;
+            top: 7px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+        }
+
+        .timeline-item .date {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: rgba(108,99,255,0.5);
+        }
+
+        .project-tag {
+            display: inline-block;
+            color: var(--primary-light);
+            background: rgba(108,99,255,0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: var(--text-secondary);
+        }
+
+        .project ul {
+            margin: 15px 0 0 18px;
+            color: var(--text-secondary);
+        }
+
+        /* EDUCATION */
+
+        .education {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .education-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .education-card span {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+        }
+
+        .education-card p {
+            color: var(--text-secondary);
+            margin-top: 7px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .contact p {
+            color: var(--text-secondary);
+            margin: 15px 0 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .about,
+            .projects,
+            .education {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            Marcos<span>.</span>
+        </div>
+
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#experiencia">Experiência</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <small>Portfólio profissional</small>
+
+        <h1>
+            Olá, eu sou<br>
+            <span>Marcos Felipe.</span>
+        </h1>
+
+        <p>
+            Profissional em formação, interessado em tecnologia,
+            processos, inteligência artificial e desenvolvimento de soluções
+            que transformem problemas em oportunidades.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projetos" class="btn btn-primary">
+                Ver meus projetos
+            </a>
+
+            <a href="#contato" class="btn btn-secondary">
+                Entre em contato
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOBRE -->
+
+<section id="sobre">
+
+    <div class="section-title">
+        <small>Sobre mim</small>
+        <h2>Construindo soluções com visão estratégica</h2>
+    </div>
+
+    <div class="about">
+
+        <div class="about-text">
+
+            <p>
+                Sou Marcos Felipe Müller Pagani, profissional em formação
+                na área de gestão e tecnologia, com experiência em atendimento,
+                processos comerciais, organização e suporte às rotinas
+                administrativas.
+            </p>
+
+            <p>
+                Tenho interesse especial pela combinação entre tecnologia,
+                inteligência artificial, processos e negócios.
+                Gosto de compreender como as coisas funcionam e buscar
+                maneiras mais simples e eficientes de resolver problemas.
+            </p>
+
+            <p>
+                Atualmente venho ampliando meus conhecimentos em programação,
+                inteligência artificial, análise de dados e ferramentas
+                digitais.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div>
+                <strong>Área de interesse</strong>
+                <span>Tecnologia • IA • Processos • Negócios</span>
+            </div>
+
+            <div>
+                <strong>Localização</strong>
+                <span>Camaquã, Rio Grande do Sul</span>
+            </div>
+
+            <div>
+                <strong>Perfil</strong>
+                <span>Estratégico • Organizado • Curioso</span>
+            </div>
+
+            <div>
+                <strong>Objetivo</strong>
+                <span>Resolver problemas através da tecnologia</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HABILIDADES -->
+
+<section id="habilidades">
+
+    <div class="section-title">
+        <small>Competências</small>
+        <h2>O que eu faço</h2>
+    </div>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>💡 Resolução de problemas</h3>
+            <p>
+                Análise de situações e busca por soluções práticas,
+                estruturadas e eficientes.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>⚙️ Processos</h3>
+            <p>
+                Organização de atividades, melhoria de processos
+                e visão sistêmica.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>🤖 Inteligência Artificial</h3>
+            <p>
+                Exploração de ferramentas de IA para produtividade,
+                automação e criação de soluções.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>💻 Tecnologia</h3>
+            <p>
+                Estudos em programação, desenvolvimento web,
+                ferramentas digitais e tecnologia.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>📊 Dados</h3>
+            <p>
+                Conhecimentos em planilhas, organização de informações
+                e Power BI.
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>🤝 Comunicação</h3>
+            <p>
+                Experiência com atendimento ao cliente,
+                comunicação comercial e trabalho em equipe.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIÊNCIA -->
+
+<section id="experiencia">
+
+    <div class="section-title">
+        <small>Trajetória</small>
+        <h2>Experiência profissional</h2>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <span class="date">
+                2024 — 2026
+            </span>
+
+            <h3>Unifique Telecomunicações</h3>
+
+            <p>
+                Atuação em atividades comerciais e administrativas,
+                incluindo atendimento ao cliente, prospecção de leads,
+                pré e pós-venda, organização de estoque, elaboração de
+                planilhas, documentos e suporte às rotinas operacionais.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <span class="date">
+                2022 — 2024
+            </span>
+
+            <h3>Lojas Pompéia</h3>
+
+            <p>
+                Experiência com atendimento ao cliente, organização
+                e controle de estoque, reposição de produtos,
+                documentos e rotinas gerais de loja.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJETOS -->
+
+<section id="projetos">
+
+    <div class="section-title">
+        <small>Projetos</small>
+        <h2>Projetos que estou desenvolvendo</h2>
+        <p>
+            Ideias que unem tecnologia, negócios, cultura e solução de problemas.
+        </p>
+    </div>
+
+
+    <div class="projects">
+
+        <div class="project">
+
+            <span class="project-tag">
+                Tecnologia + Cultura
+            </span>
+
+            <h3>Reconectura</h3>
+
+            <p>
+                Projeto voltado à valorização da história e do patrimônio
+                de Camaquã através da tecnologia.
+            </p>
+
+            <ul>
+                <li>Plataforma digital de turismo e história local</li>
+                <li>Organização de informações históricas</li>
+                <li>Possibilidade de integração futura com realidade aumentada</li>
+                <li>Conexão entre visitantes, comércio e patrimônio</li>
+            </ul>
+
+        </div>
+
+
+        <div class="project">
+
+            <span class="project-tag">
+                IA + Negócios
+            </span>
+
+            <h3>Business Inteligente</h3>
+
+            <p>
+                Conceito de negócio focado na utilização de inteligência
+                artificial para criar soluções digitais para empresas.
+            </p>
+
+            <ul>
+                <li>Automação de tarefas</li>
+                <li>Agentes de IA</li>
+                <li>Sites e soluções digitais</li>
+                <li>Organização de processos</li>
+            </ul>
+
+        </div>
+
+
+        <div class="project">
+
+            <span class="project-tag">
+                Estudos
+            </span>
+
+            <h3>Programação</h3>
+
+            <p>
+                Desenvolvimento contínuo de conhecimentos em programação
+                e tecnologia, com foco inicial em desenvolvimento web.
+            </p>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Lógica de programação</li>
+            </ul>
+
+        </div>
+
+
+        <div class="project">
+
+            <span class="project-tag">
+                Dados
+            </span>
+
+            <h3>Power BI & IA</h3>
+
+            <p>
+                Desenvolvimento de conhecimentos em análise de dados,
+                visualização de informações e utilização de inteligência
+                artificial para produtividade.
+            </p>
+
+            <ul>
+                <li>Power BI</li>
+                <li>Análise de informações</li>
+                <li>Ferramentas de IA</li>
+                <li>Produtividade digital</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FORMAÇÃO -->
+
+<section id="formacao">
+
+    <div class="section-title">
+        <small>Formação</small>
+        <h2>Educação & Desenvolvimento</h2>
+    </div>
+
+    <div class="education">
+
+        <div class="education-card">
+
+            <span>Graduação</span>
+
+            <h3>Processos Gerenciais</h3>
+
+            <p>
+                UNIASSELVI
+            </p>
+
+            <p>
+                Formação voltada para gestão, liderança,
+                processos, projetos, marketing e estratégia.
+            </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <span>Formação complementar</span>
+
+            <h3>Tecnologia e Programação</h3>
+
+            <p>
+                Estudos em lógica de programação, JavaScript,
+                inteligência artificial, Power BI e ferramentas digitais.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTATO -->
+
+<section id="contato" class="contact">
+
+    <div class="section-title">
+
+        <small>Contato</small>
+
+        <h2>Vamos conversar?</h2>
+
+        <p>
+            Estou aberto a oportunidades profissionais,
+            projetos e conexões relacionadas a tecnologia,
+            processos e inovação.
+        </p>
+
+    </div>
+
+
+    <div class="contact-links">
+
+        <a
+            href="mailto:SEUEMAIL@gmail.com"
+            class="btn btn-primary">
+            ✉️ E-mail
+        </a>
+
+        <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            class="btn btn-secondary">
+            LinkedIn
+        </a>
+
+        <a
+            href="https://github.com/"
+            target="_blank"
+            class="btn btn-secondary">
+            GitHub
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Marcos Felipe Müller Pagani.
+    Desenvolvido com HTML e CSS.
+
+</footer>
+
+
+</body>
+</html>
+```
